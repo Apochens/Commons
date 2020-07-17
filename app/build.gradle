@@ -5,6 +5,7 @@ apply from: '../gitutils.gradle'
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'jacoco'
 apply plugin: 'jacoco-android'
 apply from: 'quality.gradle'
 
@@ -157,7 +158,8 @@ android {
         }
         debug {
             minifyEnabled true
-            testCoverageEnabled project.hasProperty('coverage')
+            testCoverageEnabled true
+            //testCoverageEnabled project.hasProperty('coverage')
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
             testProguardFile 'test-proguard-rules.txt'
             versionNameSuffix "-debug-" + getBranchName()
