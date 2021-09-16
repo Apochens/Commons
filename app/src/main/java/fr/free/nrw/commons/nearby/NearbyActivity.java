@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -82,6 +83,29 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
     private final String NETWORK_INTENT_ACTION = "android.net.conn.CONNECTIVITY_CHANGE";
     private BroadcastReceiver broadcastReceiver;
 
+    /** Themis-#1385 */
+    private static final String NEW_ORIENTATION = "new_orientation";
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        int ori = this.getResources().getConfiguration().orientation;
+        outState.putInt(NEW_ORIENTATION, ori);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        int new_ori = savedInstanceState.getInt(NEW_ORIENTATION, 0);
+        if (new_ori == Configuration.ORIENTATION_LANDSCAPE) {
+            Log.i("Themis-#1385", "Step 3: Changed the Nearby layout to landscape.");
+        }
+        if (new_ori == Configuration.ORIENTATION_PORTRAIT) {
+            Log.i("Themis-#1385", "Step 4: Changed the Nearby layout back to portrait as soon as possible. The crash will occur.");
+        }
+    }
+    /** Themis-#1385 */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -139,6 +163,11 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_display_list:
+
+                /** Themis-#1385 */
+                Log.i("Themis-#1385", "Step 2: Click the \"Detail list\" in \"Nearby\".");
+                /** Themis-#1385 */
+
                 bottomSheetBehaviorForDetails.setState(BottomSheetBehavior.STATE_HIDDEN);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 return true;

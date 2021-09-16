@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -107,6 +108,11 @@ public abstract class NavigationBaseActivity extends BaseActivity
                         Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 return true;
             case R.id.action_nearby:
+
+                /** Themis-#1385 */
+                Log.i("Themis-#1385", "Step 1: Click \"Nearby\" in the drawer.");
+                /** Themis-#1385 */
+
                 drawerLayout.closeDrawer(navigationView);
                 startActivityWithFlags(this, NearbyActivity.class, Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 return true;
