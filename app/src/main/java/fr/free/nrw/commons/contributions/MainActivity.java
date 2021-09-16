@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -177,6 +178,11 @@ public class MainActivity extends NavigationBaseActivity implements FragmentMana
                         updateMenuItem();
                         break;
                     case NEARBY_TAB_POSITION:
+
+                        /** Themis-#3244 */
+                        Log.i("Themis-#3244", "Step 1: Clicked the \"NEARBY\".");
+                        /** Themis-#3244 */
+
                         Timber.d("Nearby tab selected");
                         tabLayout.getTabAt(NEARBY_TAB_POSITION).select();
                         isContributionsFragmentVisible = false;
@@ -334,6 +340,11 @@ public class MainActivity extends NavigationBaseActivity implements FragmentMana
                 return true;
             case R.id.list_sheet:
                 if (contributionsActivityPagerAdapter.getItem(1) != null) {
+
+                    /** Themis-#3244 */
+                    Log.i("Themis-#3244", "Step 2: Clicked the \"Nearby list\" menu.");
+                    /** Themis-#3244 */
+
                     ((NearbyParentFragment)contributionsActivityPagerAdapter.getItem(1)).listOptionMenuItemClicked();
                 }
                 return true;

@@ -2,6 +2,7 @@ package fr.free.nrw.commons.nearby;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -106,6 +107,11 @@ public class PlaceRenderer extends Renderer<Place> {
     protected void hookListeners(View view) {
 
         final View.OnClickListener listener = view12 -> {
+
+            /** Themis-#3244 */
+            Log.i("Themis-#3244", "Step 3: Selected a place in the nearby list.");
+            /** Themis-#3244 */
+
             Timber.d("Renderer clicked");
             TransitionManager.beginDelayedTransition(buttonLayout);
 
@@ -147,6 +153,11 @@ public class PlaceRenderer extends Renderer<Place> {
                         })
                         .show();
             } else {
+
+                /** Themis-#3244 */
+                Log.i("Themis-#3244", "Step 4: Clicked the \"Camera\" in nearby list item menu. If photo is taken, the crash will occur.");
+                /** Themis-#3244 */
+
                 Timber.d("Camera button tapped. Image title: " + place.getName() + "Image desc: " + place.getLongDescription());
                 storeSharedPrefs();
                 controller.initiateCameraPick(fragment.getActivity());
