@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
@@ -181,6 +182,11 @@ public class SearchActivity extends NavigationBaseActivity implements MediaDetai
      * @param index item index that should be opened
      */
     public void onSearchImageClicked(int index) {
+
+        /** Themis-#2123 */
+        Log.i("Themis-#2123", "Step 3: Clicked any item after search.  The crash will occur.");
+        /** Themis-#2123 */
+
         ViewUtil.hideKeyboard(this.findViewById(R.id.searchBox));
         toolbar.setVisibility(View.GONE);
         tabLayout.setVisibility(View.GONE);

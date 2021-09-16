@@ -6,6 +6,7 @@ import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -240,6 +241,11 @@ public class CategoryImagesActivity
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_search:
+
+                /** Themis-#2123 */
+                Log.i("Themis-#2123", "Step 2: Click \"search\" in the explore.");
+                /** Themis-#2123 */
+
                 NavigationBaseActivity.startActivityWithFlags(this, SearchActivity.class);
                 return true;
             default:

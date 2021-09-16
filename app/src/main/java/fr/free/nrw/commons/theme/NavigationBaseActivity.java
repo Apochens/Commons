@@ -220,6 +220,11 @@ public abstract class NavigationBaseActivity extends BaseActivity
                 NotificationActivity.startYourself(this);
                 return true;
             case R.id.action_explore:
+
+                /** Themis-#2123 */
+                Log.i("Themis-#2123", "Step 1: Click \"explore\" in the drawer.");
+                /** Themis-#2123 */
+
                 drawerLayout.closeDrawer(navigationView);
                 CategoryImagesActivity.startYourself(this, getString(R.string.title_activity_explore), FEATURED_IMAGES_CATEGORY);
                 return true;
