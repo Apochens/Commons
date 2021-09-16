@@ -13,6 +13,7 @@ import android.support.design.widget.BottomSheetBehavior;
 
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -195,18 +196,33 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
 
     private void checkGps() {
         if (!locationManager.isProviderEnabled()) {
+
+            /** Themis-#1581 */
+            Log.i("Themis-#1581", "Step 2: Checked that GPS (location permission) is disabled.");
+            /** Themis-#1581 */
+
             Timber.d("GPS is not enabled");
             new AlertDialog.Builder(this)
                     .setMessage(R.string.gps_disabled)
                     .setCancelable(false)
                     .setPositiveButton(R.string.enable_gps,
                             (dialog, id) -> {
+
+                                /** Themis-#1581 */
+                                Log.i("Themis-#1581", "Step 3: Turned to the location setting page.");
+                                /** Themis-#1581 */
+
                                 Intent callGPSSettingIntent = new Intent(
                                         android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                                 Timber.d("Loaded settings page");
                                 startActivityForResult(callGPSSettingIntent, 1);
                             })
                     .setNegativeButton(R.string.menu_cancel_upload, (dialog, id) -> {
+
+                        /** Themis-#1581 */
+                        Log.i("Themis-#1581", "Warning 3: Didn't turn to the location setting page.");
+                        /** Themis-#1581 */
+
                         showLocationPermissionDeniedErrorDialog();
                         dialog.cancel();
                     })
@@ -231,10 +247,20 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
                     new AlertDialog.Builder(this)
                             .setMessage(getString(R.string.location_permission_rationale_nearby))
                             .setPositiveButton("OK", (dialog, which) -> {
+
+                                /** Themis-#1581 */
+                                Log.i("Themis-#1581", "Step 3.1: This step is the result of not granting location permission to this application. The crash may occur.");
+                                /** Themis-#1581 */
+
                                 requestLocationPermissions();
                                 dialog.dismiss();
                             })
                             .setNegativeButton("Cancel", (dialog, id) -> {
+
+                                /** Themis-#1581 */
+                                Log.i("Themis-#1581", "Warning 3.1: Didn't grant location permission to this application. The crash can't occur.");
+                                /** Themis-#1581 */
+
                                 showLocationPermissionDeniedErrorDialog();
                                 dialog.cancel();
                             })
