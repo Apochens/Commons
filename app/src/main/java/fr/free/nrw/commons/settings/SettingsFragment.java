@@ -21,6 +21,7 @@ import android.preference.PreferenceFragment;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.File;
@@ -66,6 +67,11 @@ public class SettingsFragment extends PreferenceFragment {
 
         SwitchPreference themePreference = (SwitchPreference) findPreference("theme");
         themePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+
+            /** Themis-#1391 */
+            Log.i("Themis-#1391", "Step 4: Change \"Night mode\" in setting.");
+            /** Themis-#1391 */
+
             getActivity().recreate();
             return true;
         });

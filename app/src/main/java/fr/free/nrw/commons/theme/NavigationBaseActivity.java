@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -115,6 +116,11 @@ public abstract class NavigationBaseActivity extends BaseActivity
                 startActivityWithFlags(this, AboutActivity.class, Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 return true;
             case R.id.action_settings:
+
+                /** Themis-#1391 */
+                Log.i("Themis-#1391", "Step 3: Get into \"Setting\" activity.");
+                /** Themis-#1391 */
+
                 drawerLayout.closeDrawer(navigationView);
                 startActivityWithFlags(this, SettingsActivity.class, Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 return true;

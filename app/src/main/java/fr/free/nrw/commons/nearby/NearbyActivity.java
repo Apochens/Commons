@@ -82,8 +82,21 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
     private final String NETWORK_INTENT_ACTION = "android.net.conn.CONNECTIVITY_CHANGE";
     private BroadcastReceiver broadcastReceiver;
 
+    /** Themis-#1391 */
+    @Override
+    protected void onRestart() {
+        Log.i("Themis-#1391", "Step 5: Get back to \"Nearby\" activity again. If Night mode is changed, the crash will occur.");
+        super.onRestart();
+    }
+    /** Themis-#1391 */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        /** Themis-#1391 */
+        Log.i("Themis-#1391", "Step 1: Get into \"Nearby\" activity.");
+        /** Themis-#1391 */
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nearby);
         ButterKnife.bind(this);

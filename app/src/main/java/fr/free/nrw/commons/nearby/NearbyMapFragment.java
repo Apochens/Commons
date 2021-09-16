@@ -14,6 +14,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -473,12 +474,22 @@ public class NearbyMapFragment extends DaggerFragment {
             fabRecenter.setVisibility(View.VISIBLE);
             mapboxMap.setOnInfoWindowCloseListener(marker -> {
                 if (marker == selected) {
+
+                    /** Themis-#1391 */
+                    Log.i("Themis-#1391", "Warning 2: Cancelled a place on the map and hid the bottom sheet.");
+                    /** Themis-#1391 */
+
                     bottomSheetDetailsBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
                 }
             });
 
             mapboxMap.setOnMarkerClickListener(marker -> {
                 if (marker instanceof NearbyMarker) {
+
+                    /** Themis-#1391 */
+                    Log.i("Themis-#1391", "Step 2: Selected a place on the map and showed the bottom sheet.");
+                    /** Themis-#1391 */
+
                     this.selected = marker;
                     NearbyMarker nearbyMarker = (NearbyMarker) marker;
                     Place place = nearbyMarker.getNearbyBaseMarker().getPlace();
