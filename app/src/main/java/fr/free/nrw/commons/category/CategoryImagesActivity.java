@@ -243,7 +243,7 @@ public class CategoryImagesActivity
             case R.id.action_search:
 
                 /** Themis-#2123 */
-                Log.i("Themis-#2123", "Step 2: Click \"search\" in the explore.");
+                Log.i("Themis", "Step 2: Click \"search\" in the explore.");
                 /** Themis-#2123 */
 
                 NavigationBaseActivity.startActivityWithFlags(this, SearchActivity.class);
