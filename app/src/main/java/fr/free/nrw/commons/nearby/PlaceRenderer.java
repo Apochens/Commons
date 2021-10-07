@@ -109,7 +109,7 @@ public class PlaceRenderer extends Renderer<Place> {
         final View.OnClickListener listener = view12 -> {
 
             /** Themis-#3244 */
-            Log.i("Themis", "Step 3: Selected a place in the nearby list.");
+            Log.i("Themis", "Event 3: Selected a place in the nearby list.");
             /** Themis-#3244 */
 
             Timber.d("Renderer clicked");
@@ -155,7 +155,7 @@ public class PlaceRenderer extends Renderer<Place> {
             } else {
 
                 /** Themis-#3244 */
-                Log.i("Themis", "Step 4: Clicked the \"Camera\" in nearby list item menu. If photo is taken, the crash will occur.");
+                Log.i("Themis", "Event 4: Clicked the \"Camera\" in nearby list item menu. If photo is taken, the crash will occur.");
                 /** Themis-#3244 */
 
                 Timber.d("Camera button tapped. Image title: " + place.getName() + "Image desc: " + place.getLongDescription());

@@ -2,6 +2,8 @@ package fr.free.nrw.commons.di;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +22,13 @@ public abstract class CommonsDaggerAppCompatActivity extends AppCompatActivity i
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         inject();
-        super.onCreate(savedInstanceState);
+        try {
+            super.onCreate(savedInstanceState);
+        } catch (RuntimeException e) {
+            Log.i("Themis", "Crash!: RuntimeException.");
+            throw e;
+        }
+        
     }
 
     @Override

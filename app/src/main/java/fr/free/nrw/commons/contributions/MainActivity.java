@@ -180,7 +180,7 @@ public class MainActivity extends NavigationBaseActivity implements FragmentMana
                     case NEARBY_TAB_POSITION:
 
                         /** Themis-#3244 */
-                        Log.i("Themis", "Step 1: Clicked the \"NEARBY\".");
+                        Log.i("Themis", "Event 1: Clicked the \"NEARBY\".");
                         /** Themis-#3244 */
 
                         Timber.d("Nearby tab selected");
@@ -342,7 +342,7 @@ public class MainActivity extends NavigationBaseActivity implements FragmentMana
                 if (contributionsActivityPagerAdapter.getItem(1) != null) {
 
                     /** Themis-#3244 */
-                    Log.i("Themis", "Step 2: Clicked the \"Nearby list\" menu.");
+                    Log.i("Themis", "Event 2: Clicked the \"Nearby list\" menu.");
                     /** Themis-#3244 */
 
                     ((NearbyParentFragment)contributionsActivityPagerAdapter.getItem(1)).listOptionMenuItemClicked();
