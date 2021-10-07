@@ -17,6 +17,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -398,9 +399,14 @@ public class MediaDetailPagerFragment extends CommonsDaggerSupportFragment imple
         public Fragment getItem(int i) {
             if (i == 0) {
                 // See bug https://code.google.com/p/android/issues/detail?id=27526
-                if(getParentFragment().getActivity() == null) {
-                    Timber.d("Skipping getItem. Returning as activity is destroyed!");
-                    return null;
+                try {
+                    if(getParentFragment().getActivity() == null) {
+                        Timber.d("Skipping getItem. Returning as activity is destroyed!");
+                        return null;
+                    }
+                } catch (NullPointerException e) {
+                    Log.i("Themis", "Crash!: NullPointerException.");
+                    throw e;
                 }
                 pager.postDelayed(() -> getActivity().invalidateOptionsMenu(), 5);
             }

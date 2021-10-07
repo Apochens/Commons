@@ -184,7 +184,7 @@ public class SearchActivity extends NavigationBaseActivity implements MediaDetai
     public void onSearchImageClicked(int index) {
 
         /** Themis-#2123 */
-        Log.i("Themis", "Step 3: Clicked any item after search.  The crash will occur.");
+        Log.i("Themis", "Event 3: Clicked any item after search.");
         /** Themis-#2123 */
 
         ViewUtil.hideKeyboard(this.findViewById(R.id.searchBox));

@@ -222,7 +222,7 @@ public abstract class NavigationBaseActivity extends BaseActivity
             case R.id.action_explore:
 
                 /** Themis-#2123 */
-                Log.i("Themis", "Step 1: Click \"explore\" in the drawer.");
+                Log.i("Themis", "Event 1: Clicked \"explore\" in the drawer.");
                 /** Themis-#2123 */
 
                 drawerLayout.closeDrawer(navigationView);
