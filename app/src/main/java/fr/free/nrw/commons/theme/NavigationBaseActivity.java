@@ -204,16 +204,16 @@ public abstract class NavigationBaseActivity extends BaseActivity
                 }
                 return true;
             case R.id.action_logout:
-                new AlertDialog.Builder(this)
-                        .setMessage(R.string.logout_verification)
-                        .setCancelable(false)
-                        .setPositiveButton(R.string.yes, (dialog, which) -> {
-                            BaseLogoutListener logoutListener = new BaseLogoutListener();
-                            CommonsApplication app = (CommonsApplication) getApplication();
-                            app.clearApplicationData(this, logoutListener);
-                        })
-                        .setNegativeButton(R.string.no, (dialog, which) -> dialog.cancel())
-                        .show();
+//                new AlertDialog.Builder(this)
+//                        .setMessage(R.string.logout_verification)
+//                        .setCancelable(false)
+//                        .setPositiveButton(R.string.yes, (dialog, which) -> {
+//                            BaseLogoutListener logoutListener = new BaseLogoutListener();
+//                            CommonsApplication app = (CommonsApplication) getApplication();
+//                            app.clearApplicationData(this, logoutListener);
+//                        })
+//                        .setNegativeButton(R.string.no, (dialog, which) -> dialog.cancel())
+//                        .show();
                 return true;
             case R.id.action_notifications:
                 drawerLayout.closeDrawer(navigationView);
