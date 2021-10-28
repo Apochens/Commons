@@ -215,14 +215,14 @@ public abstract class NavigationBaseActivity extends BaseActivity
                 }
                 return true;
             case R.id.action_logout:
-                new AlertDialog.Builder(this)
-                        .setMessage(R.string.logout_verification)
-                        .setCancelable(false)
-                        .setPositiveButton(R.string.yes, (dialog, which) -> {
-                            handleLogout();
-                        })
-                        .setNegativeButton(R.string.no, (dialog, which) -> dialog.cancel())
-                        .show();
+//                new AlertDialog.Builder(this)
+//                        .setMessage(R.string.logout_verification)
+//                        .setCancelable(false)
+//                        .setPositiveButton(R.string.yes, (dialog, which) -> {
+//                            handleLogout();
+//                        })
+//                        .setNegativeButton(R.string.no, (dialog, which) -> dialog.cancel())
+//                        .show();
                 return true;
             case R.id.action_explore:
                 drawerLayout.closeDrawer(navigationView);
