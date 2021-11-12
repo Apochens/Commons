@@ -101,7 +101,7 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
             Log.i("Themis", "Step 3: Changed the Nearby layout to landscape.");
         }
         if (new_ori == Configuration.ORIENTATION_PORTRAIT) {
-            Log.i("Themis", "Step 4: Changed the Nearby layout back to portrait as soon as possible. The crash will occur.");
+            Log.i("Themis", "Step 4: Changed the Nearby layout back to portrait as soon as possible.");
         }
     }
     /** Themis-#1385 */
