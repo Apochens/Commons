@@ -85,7 +85,7 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
     /** Themis-#1391 */
     @Override
     protected void onRestart() {
-        Log.i("Themis-#1391", "Step 5: Get back to \"Nearby\" activity again. If Night mode is changed, the crash will occur.");
+        Log.i("Themis-#1391", "Step 5: Get back to \"Nearby\" activity again.");
         super.onRestart();
     }
     /** Themis-#1391 */

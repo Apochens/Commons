@@ -545,7 +545,12 @@ public class NearbyMapFragment extends DaggerFragment {
                 transparentView.setAlpha(0);
                 closeFabs(isFabOpen);
                 hideFAB();
-                this.getView().requestFocus();
+                try {
+                    this.getView().requestFocus();
+                } catch(NullPointerException e) {
+                    Log.i("Themis", "Crash!");
+                    throw e;
+                }
                 break;
         }
     }
