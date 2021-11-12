@@ -161,7 +161,12 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
                     Timber.d("Location permission granted, refreshing view");
                     //Still need to check if GPS is enabled
                     checkGps();
-                    lastKnownLocation = locationManager.getLKL();
+                    try {
+                        lastKnownLocation = locationManager.getLKL();
+                    } catch(NullPointerException e) {
+                        Log.i("Themis", "Crash!");
+                        throw e;
+                    }
                     refreshView(LocationServiceManager.LocationChangeType.PERMISSION_JUST_GRANTED);
                 } else {
                     //If permission not granted, go to page that says Nearby Places cannot be displayed
@@ -249,7 +254,7 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
                             .setPositiveButton("OK", (dialog, which) -> {
 
                                 /** Themis-#1581 */
-                                Log.i("Themis-#1581", "Step 3.1: This step is the result of not granting location permission to this application. The crash may occur.");
+                                Log.i("Themis-#1581", "Step 4: This step is the result of not granting location permission to this application. The crash may occur.");
                                 /** Themis-#1581 */
 
                                 requestLocationPermissions();
@@ -258,7 +263,7 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
                             .setNegativeButton("Cancel", (dialog, id) -> {
 
                                 /** Themis-#1581 */
-                                Log.i("Themis-#1581", "Warning 3.1: Didn't grant location permission to this application. The crash can't occur.");
+                                Log.i("Themis-#1581", "Warning 4: Didn't grant location permission to this application. The crash can't occur.");
                                 /** Themis-#1581 */
 
                                 showLocationPermissionDeniedErrorDialog();
