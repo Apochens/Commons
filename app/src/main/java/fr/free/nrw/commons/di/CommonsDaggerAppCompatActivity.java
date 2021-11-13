@@ -22,13 +22,7 @@ public abstract class CommonsDaggerAppCompatActivity extends AppCompatActivity i
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         inject();
-        try {
-            super.onCreate(savedInstanceState);
-        } catch (RuntimeException e) {
-            Log.i("Themis", "Crash!: RuntimeException.");
-            throw e;
-        }
-        
+        super.onCreate(savedInstanceState);
     }
 
     @Override

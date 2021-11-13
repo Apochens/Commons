@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -306,7 +307,12 @@ public class UploadActivity extends BaseActivity implements UploadContract.View,
         if (Intent.ACTION_SEND.equals(action) || Intent.ACTION_SEND_MULTIPLE.equals(action)) {
             receiveExternalSharedItems();
         } else if (ACTION_INTERNAL_UPLOADS.equals(action)) {
-            receiveInternalSharedItems();
+            try {
+                receiveInternalSharedItems();
+            } catch (RuntimeException e) {
+                Log.i("Themis", "Crash!: RuntimeException");
+                throw e;
+            }
         }
 
         if (uploadableFiles == null || uploadableFiles.isEmpty()) {

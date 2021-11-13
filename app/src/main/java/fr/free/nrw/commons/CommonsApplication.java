@@ -122,7 +122,7 @@ public class CommonsApplication extends Application {
         super.onCreate();
 
         INSTANCE = this;
-        ACRA.init(this);
+//        ACRA.init(this);
 
         ApplicationlessInjection
                 .getInstance(this)
