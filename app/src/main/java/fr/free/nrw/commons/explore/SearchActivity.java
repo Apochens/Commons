@@ -108,6 +108,11 @@ public class SearchActivity extends NavigationBaseActivity implements MediaDetai
                     this.query = query.toString();
                             //update image list
                             if (!TextUtils.isEmpty(query)) {
+
+                                /** Themis-#2123 **/
+                                Log.i("Themis", "Event 3: Input some chars in search box.");
+                                /** Themis-#2123 **/
+
                                 viewPager.setVisibility(View.VISIBLE);
                                 tabLayout.setVisibility(View.VISIBLE);
                                 searchHistoryContainer.setVisibility(View.GONE);
@@ -184,7 +189,7 @@ public class SearchActivity extends NavigationBaseActivity implements MediaDetai
     public void onSearchImageClicked(int index) {
 
         /** Themis-#2123 */
-        Log.i("Themis", "Event 3: Clicked any item after search.");
+        Log.i("Themis", "Event 4: Clicked any item after search.");
         /** Themis-#2123 */
 
         ViewUtil.hideKeyboard(this.findViewById(R.id.searchBox));
