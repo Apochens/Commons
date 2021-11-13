@@ -574,9 +574,19 @@ public class NearbyParentFragment extends CommonsDaggerSupportFragment
     @Override
     public void listOptionMenuItemClicked() {
         if(bottomSheetListBehavior.getState()== BottomSheetBehavior.STATE_COLLAPSED || bottomSheetListBehavior.getState()==BottomSheetBehavior.STATE_HIDDEN){
+
+            /** Themis-#3244 */
+            Log.i("Themis", "Event 2: Opened the \"Nearby list\" menu.");
+            /** Themis-#3244 */
+
             bottomSheetDetailsBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
             bottomSheetListBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         }else if(bottomSheetListBehavior.getState()==BottomSheetBehavior.STATE_EXPANDED){
+
+            /** Themis-#3244 */
+            Log.i("Themis", "Warning 2: Closed the \"Nearby list\" menu.");
+            /** Themis-#3244 */
+
             bottomSheetListBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         }
     }

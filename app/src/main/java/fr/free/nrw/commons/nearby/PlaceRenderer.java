@@ -108,16 +108,18 @@ public class PlaceRenderer extends Renderer<Place> {
 
         final View.OnClickListener listener = view12 -> {
 
-            /** Themis-#3244 */
-            Log.i("Themis", "Event 3: Selected a place in the nearby list.");
-            /** Themis-#3244 */
-
             Timber.d("Renderer clicked");
             TransitionManager.beginDelayedTransition(buttonLayout);
 
             if (buttonLayout.isShown()) {
+                /** Themis-#3244 **/
+                Log.i("Themis", "Warning 3: Closed the place entry opened in Event 3 in the nearby list.");
+                /** Themis-#3244 **/
                 closeLayout(buttonLayout);
             } else {
+                /** Themis-#3244 **/
+                Log.i("Themis", "Event 3: Selected a place in the nearby list.");
+                /** Themis-#3244 **/
                 openLayout(buttonLayout);
                 RecyclerView recyclerView = (RecyclerView) view.getParent();
                 int lastPosition = recyclerView.getAdapter().getItemCount() - 1;

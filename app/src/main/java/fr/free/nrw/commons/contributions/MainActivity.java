@@ -341,9 +341,7 @@ public class MainActivity extends NavigationBaseActivity implements FragmentMana
             case R.id.list_sheet:
                 if (contributionsActivityPagerAdapter.getItem(1) != null) {
 
-                    /** Themis-#3244 */
-                    Log.i("Themis", "Event 2: Clicked the \"Nearby list\" menu.");
-                    /** Themis-#3244 */
+
 
                     ((NearbyParentFragment)contributionsActivityPagerAdapter.getItem(1)).listOptionMenuItemClicked();
                 }
