@@ -85,7 +85,7 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
     /** Themis-#1391 */
     @Override
     protected void onRestart() {
-        Log.i("Themis-#1391", "Step 5: Get back to \"Nearby\" activity again.");
+        Log.i("Themis-#1391", "Event 5: Entered the \"Nearby\" activity again.");
         super.onRestart();
     }
     /** Themis-#1391 */
@@ -94,7 +94,7 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
     protected void onCreate(Bundle savedInstanceState) {
 
         /** Themis-#1391 */
-        Log.i("Themis-#1391", "Step 1: Get into \"Nearby\" activity.");
+        Log.i("Themis-#1391", "Event 1: Entered the \"Nearby\" activity.");
         /** Themis-#1391 */
 
         super.onCreate(savedInstanceState);

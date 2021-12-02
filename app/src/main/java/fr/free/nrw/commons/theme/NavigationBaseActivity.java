@@ -118,7 +118,7 @@ public abstract class NavigationBaseActivity extends BaseActivity
             case R.id.action_settings:
 
                 /** Themis-#1391 */
-                Log.i("Themis-#1391", "Step 3: Get into \"Setting\" activity.");
+                Log.i("Themis-#1391", "Event 3: Entered into \"Setting\" activity.");
                 /** Themis-#1391 */
 
                 drawerLayout.closeDrawer(navigationView);

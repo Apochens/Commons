@@ -487,7 +487,7 @@ public class NearbyMapFragment extends DaggerFragment {
                 if (marker instanceof NearbyMarker) {
 
                     /** Themis-#1391 */
-                    Log.i("Themis-#1391", "Step 2: Selected a place on the map and showed the bottom sheet.");
+                    Log.i("Themis-#1391", "Event 2: Selected a place on the map and showed the bottom sheet.");
                     /** Themis-#1391 */
 
                     this.selected = marker;
@@ -548,7 +548,7 @@ public class NearbyMapFragment extends DaggerFragment {
                 try {
                     this.getView().requestFocus();
                 } catch(NullPointerException e) {
-                    Log.i("Themis", "Crash!");
+                    Log.i("Themis", "Crash!: NullPointerException.");
                     throw e;
                 }
                 break;
