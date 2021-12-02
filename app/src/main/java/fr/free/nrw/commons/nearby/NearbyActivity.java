@@ -161,12 +161,13 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
                     Timber.d("Location permission granted, refreshing view");
                     //Still need to check if GPS is enabled
                     checkGps();
-                    try {
-                        lastKnownLocation = locationManager.getLKL();
-                    } catch(NullPointerException e) {
-                        Log.i("Themis", "Crash!");
-                        throw e;
-                    }
+                    lastKnownLocation = locationManager.getLKL();
+//                    try {
+//                        lastKnownLocation = locationManager.getLKL();
+//                    } catch(NullPointerException e) {
+//                        Log.i("Themis", "Crash!");
+//                        throw e;
+//                    }
                     refreshView(LocationServiceManager.LocationChangeType.PERMISSION_JUST_GRANTED);
                 } else {
                     //If permission not granted, go to page that says Nearby Places cannot be displayed
@@ -203,7 +204,7 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
         if (!locationManager.isProviderEnabled()) {
 
             /** Themis-#1581 */
-            Log.i("Themis-#1581", "Step 2: Checked that GPS (location permission) is disabled.");
+            Log.i("Themis-#1581", "Event 2: Checked that GPS (location permission) is disabled.");
             /** Themis-#1581 */
 
             Timber.d("GPS is not enabled");
@@ -214,7 +215,7 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
                             (dialog, id) -> {
 
                                 /** Themis-#1581 */
-                                Log.i("Themis-#1581", "Step 3: Turned to the location setting page.");
+                                Log.i("Themis-#1581", "Event 3: Turned to the location setting page.");
                                 /** Themis-#1581 */
 
                                 Intent callGPSSettingIntent = new Intent(
@@ -225,7 +226,7 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
                     .setNegativeButton(R.string.menu_cancel_upload, (dialog, id) -> {
 
                         /** Themis-#1581 */
-                        Log.i("Themis-#1581", "Warning 3: Didn't turn to the location setting page.");
+                        Log.i("Themis-#1581", "Warning 2: Didn't turn to the location setting page.");
                         /** Themis-#1581 */
 
                         showLocationPermissionDeniedErrorDialog();
@@ -254,7 +255,7 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
                             .setPositiveButton("OK", (dialog, which) -> {
 
                                 /** Themis-#1581 */
-                                Log.i("Themis-#1581", "Step 4: This step is the result of not granting location permission to this application. The crash may occur.");
+                                Log.i("Themis-#1581", "Event 4: This step is the result of not granting location permission to this application. The crash may occur.");
                                 /** Themis-#1581 */
 
                                 requestLocationPermissions();
@@ -263,7 +264,7 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
                             .setNegativeButton("Cancel", (dialog, id) -> {
 
                                 /** Themis-#1581 */
-                                Log.i("Themis-#1581", "Warning 4: Didn't grant location permission to this application. The crash can't occur.");
+                                Log.i("Themis-#1581", "Warning 3: Didn't grant location permission to this application. The crash can't occur.");
                                 /** Themis-#1581 */
 
                                 showLocationPermissionDeniedErrorDialog();

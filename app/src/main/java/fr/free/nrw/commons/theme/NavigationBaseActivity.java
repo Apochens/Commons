@@ -110,7 +110,7 @@ public abstract class NavigationBaseActivity extends BaseActivity
             case R.id.action_nearby:
 
                 /** Themis-#1581 */
-                Log.i("Themis-#1581", "Step 1: Selected \"Nearby\" in the drawer.");
+                Log.i("Themis-#1581", "Event 1: Selected \"Nearby\" in the drawer.");
                 /** Themis-#1581 */
 
                 drawerLayout.closeDrawer(navigationView);
