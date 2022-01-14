@@ -476,7 +476,7 @@ public class NearbyMapFragment extends DaggerFragment {
                 if (marker == selected) {
 
                     /** Themis-#1391 */
-                    Log.i("Themis-#1391", "Warning 2: Cancelled a place on the map and hid the bottom sheet.");
+                    Log.i("Themis", "Warning 2: Cancelled a place on the map and hid the bottom sheet.");
                     /** Themis-#1391 */
 
                     bottomSheetDetailsBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
@@ -487,7 +487,7 @@ public class NearbyMapFragment extends DaggerFragment {
                 if (marker instanceof NearbyMarker) {
 
                     /** Themis-#1391 */
-                    Log.i("Themis-#1391", "Event 2: Selected a place on the map and showed the bottom sheet.");
+                    Log.i("Themis", "Event 2: Selected a place on the map and showed the bottom sheet.");
                     /** Themis-#1391 */
 
                     this.selected = marker;

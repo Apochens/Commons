@@ -69,7 +69,7 @@ public class SettingsFragment extends PreferenceFragment {
         themePreference.setOnPreferenceChangeListener((preference, newValue) -> {
 
             /** Themis-#1391 */
-            Log.i("Themis-#1391", "Event 4: Changed \"Night mode\" in setting.");
+            Log.i("Themis", "Event 4: Changed \"Night mode\" in setting.");
             /** Themis-#1391 */
 
             getActivity().recreate();
