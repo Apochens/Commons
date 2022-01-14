@@ -98,10 +98,10 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
         super.onRestoreInstanceState(savedInstanceState);
         int new_ori = savedInstanceState.getInt(NEW_ORIENTATION, 0);
         if (new_ori == Configuration.ORIENTATION_LANDSCAPE) {
-            Log.i("Themis", "Step 3: Changed the Nearby layout to landscape.");
+            Log.i("Themis", "Event 3: Changed the Nearby layout to landscape.");
         }
         if (new_ori == Configuration.ORIENTATION_PORTRAIT) {
-            Log.i("Themis", "Step 4: Changed the Nearby layout back to portrait as soon as possible.");
+            Log.i("Themis", "Event 4: Changed the Nearby layout back to portrait as soon as possible.");
         }
     }
     /** Themis-#1385 */
@@ -165,7 +165,7 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
             case R.id.action_display_list:
 
                 /** Themis-#1385 */
-                Log.i("Themis", "Step 2: Click the \"Detail list\" in \"Nearby\".");
+                Log.i("Themis", "Event 2: Click the \"Detail list\" in \"Nearby\".");
                 /** Themis-#1385 */
 
                 bottomSheetBehaviorForDetails.setState(BottomSheetBehavior.STATE_HIDDEN);
