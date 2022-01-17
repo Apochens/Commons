@@ -161,13 +161,12 @@ public class NearbyActivity extends NavigationBaseActivity implements LocationUp
                     Timber.d("Location permission granted, refreshing view");
                     //Still need to check if GPS is enabled
                     checkGps();
-                    lastKnownLocation = locationManager.getLKL();
-//                    try {
-//                        lastKnownLocation = locationManager.getLKL();
-//                    } catch(NullPointerException e) {
-//                        Log.i("Themis", "Crash!");
-//                        throw e;
-//                    }
+                    try {
+                        lastKnownLocation = locationManager.getLKL();
+                    } catch(NullPointerException e) {
+                        Log.i("Themis", "Crash! NullPointerException.");
+                        throw e;
+                    }
                     refreshView(LocationServiceManager.LocationChangeType.PERMISSION_JUST_GRANTED);
                 } else {
                     //If permission not granted, go to page that says Nearby Places cannot be displayed
