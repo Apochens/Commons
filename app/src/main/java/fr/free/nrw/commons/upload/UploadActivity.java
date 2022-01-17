@@ -310,6 +310,7 @@ public class UploadActivity extends BaseActivity implements UploadContract.View,
             try {
                 receiveInternalSharedItems();
             } catch (RuntimeException e) {
+                Log.i("Themis", "Event 5: Took a photo using system camera and returned a picture.");
                 Log.i("Themis", "Crash!: RuntimeException");
                 throw e;
             }

@@ -157,7 +157,7 @@ public class PlaceRenderer extends Renderer<Place> {
             } else {
 
                 /** Themis-#3244 */
-                Log.i("Themis", "Event 4: Clicked the \"Camera\" in nearby list item menu. If photo is taken, the crash will occur.");
+                Log.i("Themis", "Event 4: Clicked the \"Camera\" in nearby list item menu.");
                 /** Themis-#3244 */
 
                 Timber.d("Camera button tapped. Image title: " + place.getName() + "Image desc: " + place.getLongDescription());
